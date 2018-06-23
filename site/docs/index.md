@@ -9,7 +9,10 @@
                <a href="install.html">installation instructions</a>,
                information about OCaml <a href="/releases/">releases</a>
                and the user
-               <a href="http://caml.inria.fr/pub/docs/manual-ocaml/">manual</a>.
+               <a href="http://caml.inria.fr/pub/docs/manual-ocaml/">manual</a>
+		       (including the
+			   <a href="http://caml.inria.fr/pub/docs/manual-ocaml/#sec544"
+			   >OCaml library</a>).
             </p>
         </section>
         <section class="span6 condensed">
@@ -103,7 +106,7 @@
                         <p class="documentation-video">
                             <iframe src="//player.vimeo.com/video/14317442?portrait=0&amp;color=ff9933" width="310" height="233" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                         </p>
-                        <p>Talk at CMU describing the experiences that Jane Street has had using OCaml as it's primary development language.</p>
+                        <p>Talk at CMU describing the experiences that Jane Street has had using OCaml as its primary development language.</p>
                     </div>
                     <div class="span4">
                         <p class="documentation-video">

@@ -19,16 +19,7 @@ These are some key notes that you should know.
     ```
     
     For people on `OS X`, you can get it on `brew` and all the `Linux`
-    distros should have `opam`. Attention Ubuntu people: if you are using 
-    an outdated version of Ubuntu (e.g. Wily, Vivid or Trusty), you should
-    do this instead because apt-get's version of opam on those is madly
-    outdated.
-    
-    ```shell
-    $ add-apt-repository ppa:avsm/ppa
-    $ apt-get update
-    $ apt-get install ocaml opam
-    ```
+    distros should have `opam`.
     
     For Windows people, [this](https://www.typerex.org/ocpwin.html) seems
     to be a decent option or you could get a VM. Do *note* that opam
@@ -65,7 +56,7 @@ oasis. The oasis flow basically goes like this: (Be aware that oasis
 is really finicky and its error messages are useless), see the oasis
 minitutorial at the end of this post. 
 
-6. `merlin` is an OCaml program that is simply amazing it drives code
+6. `merlin` is an OCaml program that is simply amazing - it drives code
     completion for plugins available in `emacs` and `vim`. Once you have
     merlin installed with
     
@@ -94,19 +85,33 @@ minitutorial at the end of this post.
     The elisp that I use for my `init.el` is listed after the `oasis`
     tutorial at the end of this post.
 
-7.  There are no full blown IDEs for OCaml, learn `emacs`, `vim`.
-Also `Sublime Text` has a merlin plugin, if you're already familiar
-with Sublime Text then just stick with it, merlin is really what
-matters here.
+7. Although there are no full blown IDEs for OCaml, there are some options to expand your editor with robust tools for things like [syntax highlighting, autocompletion](https://github.com/ocaml/merlin) and [indentation](https://github.com/OCamlPro/ocp-indent):
 
-8. `utop` is an enhanced repl, its better than the plain `ocaml`
-repl. Install it with `opam install utop`
+* If you use Emacs or Vim, you may want to consider installing
+  [user-setup](https://github.com/OCamlPro/opam-user-setup). It will
+  configure everything you need for you.
+* VSCode has the [reasonml
+  extension](https://github.com/reasonml-editor/vscode-reasonml). It
+  supports both OCaml and [Reason](https://reasonml.github.io/) (an
+  alternative syntax inspired by Javascript created and maintained by
+  Facebook).  Provides syntax highlighting, autocompletion,
+  indentation, navigation, static analysis and more.  Uses most (if
+  not all) of the modules already integrated into the Emacs/Vim
+  ecosystem.
+* There are [two recommended
+  ways](https://github.com/ocaml/merlin/wiki/atom-from-scratch) to
+  configure OCaml support in Atom using Merlin.
+* Sublime Text has a similar
+  [plugin](https://github.com/Cynddl/sublime-text-merlin).
+
+8. `utop` is an enhanced REPL, it is better than the plain `ocaml`
+REPL. Install it with `opam install utop`
 
 # Library situation
 
-`OCaml` does have a standard library but it is deliberately minimal. It was only created
+OCaml does have a standard library but it is deliberately minimal. It was only created
 to serve the needs of the compiler programmers, ie its not like
-`Python`'s standard library which has everything under the sun + the
+Python's standard library which has everything under the sun + the
 moon. There are a few standard library replacements, one is called
 `Core` and its provided by Jane Street. Its the library used in the
 **Real World OCaml** book/website. Another standard library
@@ -129,7 +134,7 @@ example to talk to the `Stripe` API, see
 
 ## Doing simple tasks (shameless plug)
 
-I try using `OCaml` for literally everything and that includes going
+I try using OCaml for literally everything and that includes going
 to hackathons, to make this less painful I wrote a library called
 `Podge` which helps with simple stuff. I don't claim its a standard
 library replacement, just a library for getting stuff done. These two
@@ -178,11 +183,12 @@ like: (The README has code examples)
 
 Loads, warning shameless plugs ahead.
 
-0.  I wrote an opam package that makes it easy to get an `iOS` OCaml
+0.  I wrote an opam package that makes it easy to get an iOS OCaml
     cross-compiler, see
     [here](https://github.com/fxfactorial/opam-ios).
-1.  Compilers!, lots of compilers/compiler tools are written in OCaml:
-    Facebook uses OCaml for [pfff](https://github.com/facebook/pfff)
+1.  Compilers! Lots of compilers and compiler tools are written in OCaml:
+    Facebook uses OCaml for the [Hack](https://github.com/facebook/hhvm/tree/master/hphp/hack)
+    typechecker, [pfff](https://github.com/facebook/pfff)
     and [flow](https://github.com/facebook/flow) and the first cut of
     Rust was written in OCaml.
 2.  Financial world, [Jane Street](https://www.janestreet.com) uses
@@ -207,13 +213,13 @@ Loads, warning shameless plugs ahead.
 
 # Stick with it!
 
-This style of coding might be new to you or maybe its your first
-programming language, stick with it and continue. `OCaml` offers many
+This style of coding might be new to you or maybe it's your first
+programming language, stick with it and continue. OCaml offers many
 awesome features and has many strengths including a very professional
 and pragmatic community. Also, if you're in the Bay Area then please
 come to [weekly office hours](http://www.meetup.com/sv-ocaml/) hours
-hosted at MixRank in San Francisco. Its open to all levels of
-experience and I still have some Enter the Monad tshirts to give away
+hosted at MixRank in San Francisco. It's open to all levels of
+experience and I still have some Enter the Monad t-shirts to give away,
 courtesy of Jane Street.
 
 ## Oasis mini-tutorial

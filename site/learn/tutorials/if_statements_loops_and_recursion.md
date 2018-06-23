@@ -42,7 +42,7 @@ max "a" "b";;
 This is because `>` is in fact polymorphic. It works on any type, even
 objects (it does a binary comparison).
 
-[Note that the `Pervasives` module defines `min` and `max` for you.]
+\[Note that the `Pervasives` module defines `min` and `max` for you.\]
 
 Let's look a bit more closely at the `if` expression. Here's the `range`
 function which I showed you earlier without much explanation. You should
@@ -314,16 +314,14 @@ If you want to call a function once on every element of the list, use
 ```ocamltop
 let f elem =
   Printf.printf "I'm looking at element %d now\n" elem in
-  List.iter f my_list
+List.iter f my_list
 ```
 `List.iter` is in fact what you should think about using first every
 time your cerebellum suggests you use a for loop.
 
 If you want to *transform* each element separately in the list - for
 example, doubling each element in the list - then use `List.map`. This
-function will be familiar to people who've
-
-programmed in Perl before.
+function will be familiar to people who've programmed in Perl before.
 
 ```ocamltop
 List.map (( * ) 2) my_list

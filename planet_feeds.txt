@@ -25,6 +25,7 @@ Frama-C|http://frama-c.com/rss.xml
 Functional Jobs|http://functionaljobs.com/jobs/search/?q=ocaml&format=rss
 GaGallium|http://gallium.inria.fr/blog/index.rss
 Gaius Hammond|http://gaiustech.wordpress.com/category/ocaml/feed/
+Gemma Gordon (OCaml Labs)|http://reynard.io/feed.xml
 Gerd Stolpmann|http://blog.camlcity.org/blog/rss
 GitHub Jobs|https://jobs.github.com/positions.atom?description=ocaml
 Grant Rettke|http://www.wisdomandwonder.com/tag/OCaml/feed
@@ -81,3 +82,4 @@ OCaml Platform|http://opam.ocaml.org/blog/feed.xml
 Xinuo Chen|http://typeocaml.com/rss/
 Cryptosense|https://cryptosense.com/tag/ocaml/feed/
 Gabriel Radanne|http://drup.github.io/feed-ocaml.xml
+The BAP Blog|https://binaryanalysisplatform.github.io/feed.xml

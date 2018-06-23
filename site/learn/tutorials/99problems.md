@@ -1125,17 +1125,24 @@ specification: `gray n` returns the `n`-bit Gray code.
 SOLUTION
 
 > ```ocamltop
-> let prepend c s =
->   (* Prepend the char [c] to the string [s]. *)
->   let s' = String.create (String.length s + 1) in
->   s'.[0] <- c;
->   String.blit s 0 s' 1 (String.length s);
->   s'
-> 
-> let rec gray n =
->   if n <= 1 then ["0"; "1"]
->   else let g = gray (n - 1) in
->        List.map (prepend '0') g @ List.rev_map (prepend '1') g
+>   let gray n =
+>     let rec gray_next_level k l =
+>       if k<n then
+>         (* This is the core part of the Gray code construction.
+>          * first_half is reversed and has a "0" attached to every element.
+>          * Second part is reversed (it must be reversed for correct gray code).
+>          * Every element has "1" attached to the front.*)
+>         let (first_half,second_half) =
+>           List.fold_left (fun (acc1,acc2) x ->
+>               (("0"^x)::acc1, ("1"^x)::acc2 )) ([],[]) l
+>         in
+>         (* List.rev_append turns first_half around and attaches it to second_half.
+>          * The result is the modified first_half in correct order attached to
+>          * the second_half modified in reversed order.*)
+>         gray_next_level (k+1) (List.rev_append first_half second_half)
+>       else l
+>     in
+>     gray_next_level 1 ["0"; "1"];;
 > ```
 
 ```ocamltop
@@ -1620,10 +1627,17 @@ collect them in a list.
 SOLUTION
 
 > ```ocamltop
-> let rec leaves = function
->   | Empty -> []
->   | Node(c, Empty, Empty) -> [c]
->   | Node(_, l, r) -> leaves l @ leaves r
+> (* Having an accumulator acc prevents using inefficient List.append.
+>  * Every Leaf will be pushed directly into accumulator.
+>  * Not tail-recursive, but that is no problem since we have a binary tree and
+>  * and stack depth is logarithmic. *)
+> let leaves t = 
+>   let rec leaves_aux t acc = match t with
+>     | Empty -> acc
+>     | Node(x, Empty, Empty) -> x::acc
+>     | Node(x, l, r) -> leaves_aux l (leaves_aux r acc)
+>   in
+>   leaves_aux t [];;
 > ```
 
 ```ocamltop
@@ -1640,9 +1654,17 @@ successors. Write a function `internals` to collect them in a list.
 SOLUTION
 
 > ```ocamltop
-> let rec internals = function
->   | Empty | Node(_, Empty, Empty) -> []
->   | Node(c, l, r) -> internals l @ (c :: internals r)
+> (* Having an accumulator acc prevents using inefficient List.append.
+>  * Every internal node will be pushed directly into accumulator.
+>  * Not tail-recursive, but that is no problem since we have a binary tree and
+>  * and stack depth is logarithmic. *)
+> let internals t = 
+>   let rec internals_aux t acc = match t with
+>     | Empty -> acc
+>     | Node(x, Empty, Empty ) -> acc
+>     | Node(x, l, r) -> internals_aux l (x::(internals_aux r acc))
+>   in
+>   internals_aux t [];;
 > ```
 
 ```ocamltop
@@ -1661,11 +1683,20 @@ list.
 SOLUTION
 
 > ```ocamltop
-> let rec at_level t l = match t with
->   | Empty -> []
->   | Node(c, left, right) ->
->      if l = 1 then [c]
->      else at_level left (l - 1) @ at_level right (l - 1)
+> (* Having an accumulator acc prevents using inefficient List.append.
+>  * Every node at level N will be pushed directly into accumulator.
+>  * Not tail-recursive, but that is no problem since we have a binary tree and
+>  * and stack depth is logarithmic. *)
+> let at_level t level =
+>   let rec at_level_aux t acc counter = match t with
+>     | Empty -> acc
+>     | Node(x, l, r) ->
+>       if counter=level then
+>         x::acc
+>       else
+>         at_level_aux l (at_level_aux r acc (counter+1)) (counter+1)
+>   in
+>   at_level_aux t [] 1;;
 > ```
 
 ```ocamltop
@@ -2758,7 +2789,7 @@ SOLUTION
 > ```ocamltop
 > let full_words =
 >   let digit = [|"zero"; "one"; "two"; "three"; "four"; "five"; "six";
->                 "seven"; "height"; "nine" |] in
+>                 "seven"; "eight"; "nine" |] in
 >   let rec words w n =
 >     if n = 0 then (match w with [] -> [digit.(0)] | _ -> w)
 >     else words (digit.(n mod 10) :: w) (n / 10) in

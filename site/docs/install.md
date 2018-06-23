@@ -13,9 +13,9 @@ The OCaml compiler and libraries can be installed in several ways:
 * With [OPAM](#OPAM), the OCaml package manager (recommended).
 * With a system package manager supported by your platform
   ([FreeBSD](#FreeBSD), [Linux](#Linux), [macOS](#macOS),
-   [OpenBSD](#OpenBSD), [Windows](#Window))
+   [OpenBSD](#OpenBSD), [Windows](#Windows))
 * In your [browser](#Browser).
-* By compiling [the source](#FromSource).
+* By compiling [the source](#From-Source).
 
 For finding and installing OCaml libraries, see the
 [libraries page](/learn/libraries.html). Information about the
@@ -41,11 +41,11 @@ pkg_add -r ocaml
 Most Linux distributions allow OCaml and/or OPAM to be installed
 directly through the system package manager.
 
-### [Debian](http://www.debian.org/)
+### [Debian](https://www.debian.org/)
 
 ```bash
-apt-get install ocaml-nox # If you don't want X11 support
-apt-get install ocaml
+apt install ocaml-nox # If you don't want X11 support
+apt install ocaml
 ```
 
 Other Debian packages related to OCaml are
@@ -53,35 +53,21 @@ Other Debian packages related to OCaml are
 They are made available through
 [The Debian OCaml Packaging Policy](http://pkg-ocaml-maint.alioth.debian.org/ocaml_packaging_policy.html/index.html).
 
-### [Ubuntu](http://www.ubuntu.com/)
+### [Ubuntu](https://www.ubuntu.com/)
 
 ```bash
-apt-get install ocaml-nox # If you don't want X11 support.
-apt-get install ocaml
+apt install ocaml-nox # If you don't want X11 support.
+apt install ocaml
 ```
 
 Other Ubuntu packages related to OCaml are
 [listed here](http://packages.ubuntu.com/search?keywords=ocaml).
 
-Ubuntu's official repositories often lag substantially behind the
-latest official releases of OCaml and OPAM. More recent versions are
-made available in these [PPAs](https://launchpad.net/~avsm).
-
-They can be installed with:
-```bash
-add-apt-repository --yes ppa:avsm/ppa
-apt-get update -qq
-apt-get install -y opam
-eval $(opam config env)
-```
-Please note PPAs are not reviewed by Ubuntu's security team and you are
-trusting the PPA's distributor by adding them to your system.
-
 ### [Fedora](https://getfedora.org/)
 
 ```bash
-yum install ocaml
-yum search ocaml   # List packages related to OCaml
+dnf install ocaml
+dnf search ocaml   # List packages related to OCaml
 ```
 
 OCaml packages are packaged according to this
@@ -91,6 +77,14 @@ There is an
 and a
 [mailing list](https://lists.fedoraproject.org/mailman/listinfo/Ocaml-devel)
 for people interested in OCaml on Fedora or Red Hat Enterprise Linux.
+
+
+### [Centos](https://www.centos.org/) / [Red Hat Enterprise Linux](http://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
+
+```bash
+yum install ocaml
+yum search ocaml   # List packages related to OCaml
+```
 
 ### [Gentoo](https://www.gentoo.org/)
 
@@ -141,7 +135,7 @@ brew install opam
 ###  [Fink](http://fink.sourceforge.net/)
 
 ```bash
-apt-get install ocaml
+apt install ocaml
 ```
 
 ### [MacPorts](http://www.macports.org/)
@@ -162,17 +156,14 @@ pkg_add opam
 
 Under Windows, the following direct solutions are available to use OCaml:
 
-* [Official OCaml distribution](http://protz.github.io/ocaml-installer/).
-  A self-installer with a preliminary version of OPAM for Windows.
+* [OCaml for Windows](https://fdopen.github.io/opam-repository-mingw/)
+  provides an experimental OPAM repository and opam build for Windows.
 
 * [OCPWin](http://www.typerex.org/ocpwin.html) is a self-contained binary
   distribution of OCaml for Windows. Some additional features have
   been added to OCaml for better support of Windows, such as auto-detection
   of MSVC and support for MSVC 9.0, 10.0, 11.0, 12.0 and 14.0 (VS2015).
-
-* [OCaml for Windows](https://fdopen.github.io/opam-repository-mingw/)
-  provides an experimental OPAM repository and opam build for Windows.
-  
+ 
 Here are a few other alternatives:
 
 * The OCaml source distribution directly supports many different Windows

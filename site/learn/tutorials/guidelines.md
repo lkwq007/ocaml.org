@@ -19,7 +19,7 @@ Basile Starynkevitch, Toby Moth, Pierre Lescanne.
 
 ## General guidelines to write programs
 ###  Be simple and readable
-The time you spend typing the programs is neglectable compared to the
+The time you spend typing the programs is negligible compared to the
 time spent reading them. That's the reason why you save a lot of time if
 you work hard to optimize readability.
 
@@ -550,7 +550,7 @@ let rec fib = function
 > (or simple clauses in complex matchings), the rule does not add any
 > good to readability.
 > 
-> **Justitification**: I don't see any good reason for this rule, unless
+> **Justification**: I don't see any good reason for this rule, unless
 > you are paid proportionally to the number of lines of code: in this
 > case use this rule to get more money without adding more bugs in your
 > OCaml programs!
@@ -627,8 +627,8 @@ let f = function
 
 ###  How to indent function calls
 ####  Indentation to the function's name:
-No problem arises except for functions with many arguments --or very
-complicated arguments as well-- which can't fit on the same line. You
+No problem arises except for functions with many arguments&mdash;or very
+complicated arguments as well&mdash;which can't fit on the same line. You
 must indent the expressions with respect to the name of the function (1
 or 2 spaces according to the chosen convention). Write small arguments
 on the same line, and change lines at the start of an argument.
@@ -1098,7 +1098,7 @@ Warnings about pattern-matching must be treated with the upmost care:
  redundant guard.
 
 ####  De-structuring `let` bindings
-[Translator's note: a “de-structuring `let` binding” is one which
+\[Translator's note: a “de-structuring `let` binding” is one which
 binds several names to several expressions simultaneously. You pack all
 the names you want bound into a collection such as a tuple or a list,
 and you correspondingly pack all the expressions into a collective
@@ -1106,7 +1106,7 @@ expression. When the `let` binding is evaluated, it unpacks the
 collections on both sides and binds each expression to its corresponding
 name. For example, `let x, y = 1, 2` is a de-structuring `let` binding
 which performs both the bindings `let x = 1` and `let y = 2`
-simultaneously.]<br />
+simultaneously.\]<br />
 The `let` binding is not limited to simple identifier definitions: you
 can use it with more complex or simpler patterns. For instance
 
@@ -1421,7 +1421,7 @@ reinvent them.
 So write
 
 ```ocaml
-let square_elements elements = List.map carre elements
+let square_elements elements = List.map square elements
 ```
 rather than:
 

@@ -11,11 +11,11 @@ addons:
     - aspcud
     - nettle-dev   # for ocamlnet
 
-script: bash -ex .travis-ci.sh
+script: ./.travis-ci.sh
 env:
-  - OPAM_SWITCH=4.02.3
-  - OPAM_SWITCH=4.03.0
   - OPAM_SWITCH=4.04.2
+  - OPAM_SWITCH=4.05.0
+  - OPAM_SWITCH=4.06.1
 # cache:
 #   directories:
 #   - $HOME/.opam
